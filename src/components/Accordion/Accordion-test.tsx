@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import Accordion from '../Accordion';
-import AccordionSkeleton from '../Accordion/Accordion.Skeleton';
-import SkeletonText from '../SkeletonText';
+import Accordion from './Accordion';
+import AccordionSkeleton from './Accordion.Skeleton';
+import SkeletonText from '../SkeletonText/SkeletonText';
 import { shallow, mount } from 'enzyme';
 
 describe('Accordion', () => {

@@ -7,8 +7,8 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import Icon from '../Icon';
-import SkeletonText from '../SkeletonText';
+import Icon from '../Icon/Icon';
+import SkeletonText from '../SkeletonText/SkeletonText';
 import { iconChevronRight } from 'carbon-icons';
 import { settings } from 'carbon-components';
 
