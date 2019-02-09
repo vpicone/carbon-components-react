@@ -12,7 +12,7 @@ import { storiesOf } from '@storybook/react';
 
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 import Icon, { setIconsList } from '../Icon';
-import IconSkeleton from '../Icon/Icon.Skeleton';
+import IconSkeleton from './Icon.Skeleton';
 
 setIconsList(iconsList);
 

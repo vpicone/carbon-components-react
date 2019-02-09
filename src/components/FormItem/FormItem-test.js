@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import FormItem from '../FormItem';
+import FormItem from './FormItem';
 
 describe('FormItem', () => {
   it('should render', () => {

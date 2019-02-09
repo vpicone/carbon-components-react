@@ -129,6 +129,7 @@
   },
   "dependencies": {
     "@carbon/icons-react": "^0.0.1-alpha.26",
+    "@types/enzyme": "^3.1.17",
     "classnames": "2.2.6",
     "downshift": "^1.31.14",
     "flatpickr": "4.5.2",
@@ -171,6 +172,7 @@
     "@storybook/addons": "~4.0.12",
     "@storybook/react": "~4.0.12",
     "@types/jest": "^24.0.0",
+    "@types/node": "^10.12.24",
     "@types/prop-types": "^15.5.8",
     "@types/react": "^16.8.2",
     "@types/react-dom": "^16.8.0",
@@ -227,6 +229,8 @@
     "storybook-readme": "^4.0.2",
     "string-replace-loader": "^2.1.0",
     "terser-webpack-plugin": "^1.1.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.3.3",
     "validate-commit-msg": "^2.10.1",
     "webpack": "^4.25.1",
     "whatwg-fetch": "^2.0.3"
@@ -335,11 +339,14 @@
     ],
     "testMatch": [
       "<rootDir>/**/__tests__/**/*.js?(x)",
-      "<rootDir>/**/?(*-)(spec|test).js?(x)"
+      "<rootDir>/**/?(*-)(spec|test).js?(x)",
+      "<rootDir>/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/**/?(*-)(spec|test).ts?(x)"
     ],
     "testRunner": "jest-circus/runner",
     "testURL": "http://localhost",
     "transform": {
+      "^.+\\.tsx?$": "ts-jest",
       "^.+\\.(js|jsx)$": "<rootDir>/config/jest/jsTransform.js",
       "^.+\\.s?css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
@@ -350,14 +357,17 @@
       "/config/",
       "/lib/",
       "/es/",
-      "/cjs/"
+      "/cjs/",
+      "/dist/"
     ],
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\](?!(carbon-icons)).+\\.(js|jsx)$"
     ],
     "moduleFileExtensions": [
       "js",
-      "json"
+      "json",
+      "ts",
+      "tsx"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
