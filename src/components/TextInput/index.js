@@ -6,4 +6,4 @@
  */
 
 export * from './TextInput.Skeleton';
-export default from './TextInput';
+export default './TextInput';

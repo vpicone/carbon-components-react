@@ -1539,10 +1539,35 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
   integrity sha512-F/v7t1LwS4vnXuPooJQGBRKRGIoxWUTmA4VHfqjOccFsNDThD5bfUNpITive6s352O7o384wcpEaDV8rHCehDA==
 
+"@types/jest@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.0.tgz#848492026c327b3548d92be0352a545c36a21e8a"
+  integrity sha512-kOafJnUTnMd7/OfEO/x3I47EHswNjn+dbz9qk3mtonr1RvKT+1FGVxnxAx08I9K8Tl7j9hpoJRE7OCf+t10fng==
+
 "@types/node@*":
   version "10.12.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.10.tgz#4fa76e6598b7de3f0cb6ec3abacc4f59e5b3a2ce"
   integrity sha512-8xZEYckCbUVgK8Eg7lf5Iy4COKJ5uXlnIOnePN0WUwSQggy9tolM+tDJf7wMOnT/JT/W9xDYIaYggt3mRV2O5w==
+
+"@types/prop-types@*", "@types/prop-types@^15.5.8":
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
+  integrity sha512-3AQoUxQcQtLHsK25wtTWIoIpgYjH3vSDroZOUr7PpCHw/jLY1RB9z9E8dBT/OSmwStVgkRNvdh+ZHNiomRieaw==
+
+"@types/react-dom@^16.8.0":
+  version "16.8.0"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.0.tgz#c565f43f9d2ec911f9e0b8f3b74e25e67879aa3f"
+  integrity sha512-Jp4ufcEEjVJEB0OHq2MCZcE1u3KYUKO6WnSuiU/tZeYeiZxUoQavfa/TZeiIT+1XoN6l0lQVNM30VINZFDeolQ==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.8.2":
+  version "16.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.2.tgz#3b7a7f7ea89d1c7d68b00849fb5de839011c077b"
+  integrity sha512-6mcKsqlqkN9xADrwiUz2gm9Wg4iGnlVGciwBRYFQSMWG6MQjhOZ/AVnxn+6v8nslFgfYTV8fNdE6XwKu6va5PA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -3953,6 +3978,11 @@ cssstyle@^1.0.0:
   integrity sha512-364AI1l/M5TYcFH83JnOH/pSqgaNnKmYgKrm0didZMGKWjQB60dymwWy1rKUgL3J1ffdq9xVi2yGLHdSjjSNog==
   dependencies:
     cssom "0.3.x"
+
+csstype@^2.2.0:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.2.tgz#3043d5e065454579afc7478a18de41909c8a2f01"
+  integrity sha512-Rl7PvTae0pflc1YtxtKbiSqq20Ts6vpIYOD5WBafl4y123DyHUeLrRdQP66sQW8/6gmX8jrYJLXwNeMqYVJcow==
 
 currently-unhandled@^0.4.1:
   version "0.4.1"

@@ -6,4 +6,4 @@
  */
 
 export * from './Dropdown.Skeleton';
-export default from './DropdownV2';
+export default './DropdownV2';

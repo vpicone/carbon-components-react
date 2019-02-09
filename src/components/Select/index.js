@@ -6,4 +6,4 @@
  */
 
 export * from './Select.Skeleton';
-export default from './Select';
+export default './Select';
