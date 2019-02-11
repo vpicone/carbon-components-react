@@ -12,7 +12,23 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-const SelectItem = ({ className, value, disabled, hidden, text, ...other }) => {
+type Props = {
+  className?: any;
+  value?: any;
+  disabled?: any;
+  hidden?: any;
+  text?: any;
+  defaultValue?: any;
+};
+
+const SelectItem: React.FC<Props> = ({
+  className,
+  value,
+  disabled,
+  hidden,
+  text,
+  ...other
+}) => {
   const selectItemClasses = classNames({
     [`${prefix}--select-option`]: true,
     [className]: className,

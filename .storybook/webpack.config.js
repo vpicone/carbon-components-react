@@ -64,6 +64,16 @@ module.exports = (baseConfig, env, defaultConfig) => {
     ],
   };
 
+  defaultConfig.resolve.extensions.push('.ts', '.tsx');
+  defaultConfig.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    use: [
+      {
+        loader: require.resolve('awesome-typescript-loader'),
+      },
+    ],
+  });
+
   defaultConfig.module.rules.push({
     test: /(\/|\\)FeatureFlags\.js$/,
     loader: 'string-replace-loader',

@@ -12,7 +12,16 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-const Accordion = ({ children, className, ...other }) => {
+type Props = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+const Accordion: React.FunctionComponent<Props> = ({
+  children,
+  className,
+  ...other
+}) => {
   const classNames = classnames(`${prefix}--accordion`, className);
   return (
     <ul {...other} className={classNames}>

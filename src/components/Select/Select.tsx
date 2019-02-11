@@ -17,7 +17,25 @@ import ChevronDownGlyph from '@carbon/icons-react/lib/chevron--down/index';
 
 const { prefix } = settings;
 
-const Select = ({
+type Props = {
+  className?: any;
+  id?: any;
+  inline?: any;
+  labelText?: any;
+  disabled?: any;
+  children?: any;
+  iconDescription?: any;
+  hideLabel?: any;
+  invalid?: any;
+  invalidText?: any;
+  helperText?: any;
+  light?: any;
+  forwardRef?: any;
+  defaultValue?: string;
+  onChange?: () => void;
+};
+
+const Select: React.FC<Props> = ({
   className,
   id,
   inline,
@@ -96,79 +114,79 @@ const Select = ({
   );
 };
 
-Select.propTypes = {
-  /**
-   * Provide the contents of your Select
-   */
-  children: PropTypes.node,
+// Select.propTypes = {
+//   /**
+//    * Provide the contents of your Select
+//    */
+//   children: PropTypes.node,
 
-  /**
-   * Specify an optional className to be applied to the node containing the label and the select box
-   */
-  className: PropTypes.string,
+//   /**
+//    * Specify an optional className to be applied to the node containing the label and the select box
+//    */
+//   className: PropTypes.string,
 
-  /**
-   * Specify a custom `id` for the `<select>`
-   */
-  id: PropTypes.string.isRequired,
+//   /**
+//    * Specify a custom `id` for the `<select>`
+//    */
+//   id: PropTypes.string.isRequired,
 
-  /**
-   * Specify whether you want the inline version of this control
-   */
-  inline: PropTypes.bool,
+//   /**
+//    * Specify whether you want the inline version of this control
+//    */
+//   inline: PropTypes.bool,
 
-  /**
-   * Provide label text to be read by screen readers when interacting with the
-   * control
-   */
-  labelText: PropTypes.node,
+//   /**
+//    * Provide label text to be read by screen readers when interacting with the
+//    * control
+//    */
+//   labelText: PropTypes.node,
 
-  /**
-   * Provide an optional `onChange` hook that is called each time the value of
-   * the underlying <input> changes
-   */
-  onChange: PropTypes.func,
+//   /**
+//    * Provide an optional `onChange` hook that is called each time the value of
+//    * the underlying <input> changes
+//    */
+//   onChange: PropTypes.func,
 
-  /**
-   * Specify whether the control is disabled
-   */
-  disabled: PropTypes.bool,
+//   /**
+//    * Specify whether the control is disabled
+//    */
+//   disabled: PropTypes.bool,
 
-  /**
-   * Optionally provide the default value of the `<select>`
-   */
-  defaultValue: PropTypes.any,
+//   /**
+//    * Optionally provide the default value of the `<select>`
+//    */
+//   defaultValue: PropTypes.any,
 
-  /**
-   * Provide a description for the twistie icon that can be read by screen readers
-   */
-  iconDescription: PropTypes.string.isRequired,
+//   /**
+//    * Provide a description for the twistie icon that can be read by screen readers
+//    */
+//   iconDescription: PropTypes.string.isRequired,
 
-  /**
-   * Specify whether the label should be hidden, or not
-   */
-  hideLabel: PropTypes.bool,
+//   /**
+//    * Specify whether the label should be hidden, or not
+//    */
+//   hideLabel: PropTypes.bool,
 
-  /**
-   * Specify if the currently value is invalid.
-   */
-  invalid: PropTypes.bool,
+//   /**
+//    * Specify if the currently value is invalid.
+//    */
+//   invalid: PropTypes.bool,
 
-  /**
-   * Message which is displayed if the value is invalid.
-   */
-  invalidText: PropTypes.string,
+//   /**
+//    * Message which is displayed if the value is invalid.
+//    */
+//   invalidText: PropTypes.string,
 
-  /**
-   * Provide text that is used alongside the control label for additional help
-   */
-  helperText: PropTypes.node,
+//   /**
+//    * Provide text that is used alongside the control label for additional help
+//    */
+//   helperText: PropTypes.node,
 
-  /**
-   * Specify whether you want the light version of this control
-   */
-  light: PropTypes.bool,
-};
+//   /**
+//    * Specify whether you want the light version of this control
+//    */
+//   light: PropTypes.bool,
+// };
 
 Select.defaultProps = {
   disabled: false,
@@ -181,6 +199,7 @@ Select.defaultProps = {
   light: false,
 };
 
-export default React.forwardRef((props, ref) => (
+export type Ref = HTMLSelectElement;
+export default React.forwardRef<Ref, Props>((props, ref) => (
   <Select {...props} forwardRef={ref} />
 ));
