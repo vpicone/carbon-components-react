@@ -12,7 +12,18 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-const Breadcrumb = ({ children, className, noTrailingSlash, ...other }) => {
+type Props = {
+  children: React.ReactNode;
+  className?: string;
+  noTrailingSlash?: boolean;
+};
+
+const Breadcrumb: React.FC<Props> = ({
+  children,
+  className,
+  noTrailingSlash,
+  ...other
+}) => {
   const classNames = classnames(className, {
     [`${prefix}--breadcrumb`]: true,
     [`${prefix}--breadcrumb--no-trailing-slash`]: noTrailingSlash,

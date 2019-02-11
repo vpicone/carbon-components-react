@@ -12,7 +12,13 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-const Link = ({ children, className, href, ...other }) => {
+type Props = {
+  className?: string;
+  href?: string;
+  children: React.ReactNode;
+};
+
+const Link: React.FC<Props> = ({ children, className, href, ...other }) => {
   const classNames = classnames(`${prefix}--link`, className);
   return (
     <a href={href} className={classNames} {...other}>

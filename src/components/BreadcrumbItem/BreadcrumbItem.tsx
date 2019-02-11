@@ -23,7 +23,18 @@ const newChild = (children, href, prefix) => {
   }
 };
 
-const BreadcrumbItem = ({ children, className, href, ...other }) => {
+type Props = {
+  children: React.ReactNode;
+  className?: string;
+  href?: string;
+};
+
+const BreadcrumbItem: React.FC<Props> = ({
+  children,
+  className,
+  href,
+  ...other
+}) => {
   const classNames = classnames(`${prefix}--breadcrumb-item`, className);
   return (
     <div className={classNames} {...other}>
