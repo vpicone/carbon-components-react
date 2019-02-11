@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { Component, MouseEventHandler } from 'react';
 import classnames from 'classnames';
 import { iconChevronRight } from 'carbon-icons';
 import { settings } from 'carbon-components';
@@ -15,53 +15,72 @@ import { match, keys } from '../../tools/key';
 
 const { prefix } = settings;
 
-const defaultRenderExpando = props => <button {...props} />;
+const defaultRenderExpando = ({ children, ...rest }) => (
+  <button {...rest}>{children}</button>
+);
 
-export default class AccordionItem extends Component {
-  state = {};
+interface Props {
+  title?: React.ReactNode;
+  className?: string;
+  renderExpando?: (props: any) => JSX.Element;
+  iconDescription?: string;
+  open?: boolean;
+  onClick?: (event: React.MouseEvent) => void;
+  onHeadingClick?: (
+    { isOpen, evt }: { isOpen: boolean; evt: React.MouseEvent }
+  ) => void;
+}
 
-  static propTypes = {
-    /**
-     * Provide the contents of your AccordionItem
-     */
-    children: PropTypes.node,
-
-    /**
-     * Specify an optional className to be applied to the container node
-     */
-    className: PropTypes.string,
-
-    /**
-     * The accordion title.
-     */
-    title: PropTypes.node,
-
-    /**
-     * The callback function to render the expando button.
-     * Can be a React component class.
-     */
-    renderExpando: PropTypes.func,
-
-    /**
-     * The description of the expando icon.
-     */
-    iconDescription: PropTypes.string,
-
-    /**
-     * `true` to open the expando.
-     */
-    open: PropTypes.bool,
-
-    /**
-     * The handler of the massaged `click` event.
-     */
-    onClick: PropTypes.func,
-
-    /**
-     * The handler of the massaged `click` event on the heading.
-     */
-    onHeadingClick: PropTypes.func,
+export default class AccordionItem extends Component<
+  Props,
+  { open: boolean; prevOpen: boolean }
+> {
+  state = {
+    open: false,
+    prevOpen: false,
   };
+  // static propTypes = {
+  //   /**
+  //    * Provide the contents of your AccordionItem
+  //    */
+  //   children: PropTypes.node,
+
+  //   /**
+  //    * Specify an optional className to be applied to the container node
+  //    */
+  //   className: PropTypes.string,
+
+  //   /**
+  //    * The accordion title.
+  //    */
+  //   title: PropTypes.node,
+
+  //   /**
+  //    * The callback function to render the expando button.
+  //    * Can be a React component class.
+  //    */
+  //   renderExpando: PropTypes.func,
+
+  //   /**
+  //    * The description of the expando icon.
+  //    */
+  //   iconDescription: PropTypes.string,
+
+  //   /**
+  //    * `true` to open the expando.
+  //    */
+  //   open: PropTypes.bool,
+
+  //   /**
+  //    * The handler of the massaged `click` event.
+  //    */
+  //   onClick: PropTypes.func,
+
+  //   /**
+  //    * The handler of the massaged `click` event on the heading.
+  //    */
+  //   onHeadingClick: PropTypes.func,
+  // };
 
   static defaultProps = {
     title: 'title',
@@ -89,7 +108,7 @@ export default class AccordionItem extends Component {
   handleHeadingClick = evt => {
     const open = !this.state.open;
     this.setState({ open });
-    this.props.onHeadingClick({ isOpen: open, event: evt });
+    this.props.onHeadingClick({ isOpen: open, evt });
   };
 
   handleKeyDown = evt => {

@@ -6,4 +6,4 @@
  */
 
 export * from './DatePicker.Skeleton';
-export default './DatePicker';
+export { default } from './DatePicker';

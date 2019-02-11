@@ -6,4 +6,4 @@
  */
 
 export * from './TextArea.Skeleton';
-export default './TextArea';
+export { default } from './TextArea';

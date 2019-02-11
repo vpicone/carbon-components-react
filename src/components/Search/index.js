@@ -6,4 +6,4 @@
  */
 
 export * from './Search.Skeleton';
-export default './Search';
+export { default } from './Search';

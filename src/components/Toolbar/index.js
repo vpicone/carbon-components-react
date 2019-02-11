@@ -6,4 +6,4 @@
  */
 
 export * from './Toolbar';
-export default './Toolbar';
+export { default } from './Toolbar';

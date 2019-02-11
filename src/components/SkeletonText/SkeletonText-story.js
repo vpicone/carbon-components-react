@@ -11,7 +11,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
-import SkeletonText from '../SkeletonText';
+import SkeletonText from '.';
 
 const widths = {
   '100%': '100%',

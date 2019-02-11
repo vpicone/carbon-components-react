@@ -6,4 +6,4 @@
  */
 
 export * from './Breadcrumb.Skeleton';
-export default './Breadcrumb';
+export { default } from './Breadcrumb';

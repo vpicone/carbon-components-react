@@ -6,4 +6,4 @@
  */
 
 export * from './Button.Skeleton';
-export default './Button';
+export { default } from './Button';

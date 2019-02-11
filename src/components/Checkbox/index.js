@@ -6,4 +6,4 @@
  */
 
 export * from './Checkbox.Skeleton';
-export default './Checkbox';
+export { default } from './Checkbox';

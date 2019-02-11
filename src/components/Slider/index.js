@@ -6,4 +6,4 @@
  */
 
 export * from './Slider.Skeleton';
-export default './Slider';
+export { default } from './Slider';

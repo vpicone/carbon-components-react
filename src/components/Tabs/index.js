@@ -6,4 +6,4 @@
  */
 
 export * from './Tabs.Skeleton';
-export default './Tabs';
+export { default } from './Tabs';

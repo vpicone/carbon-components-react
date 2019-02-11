@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export default './TableHeader';
+export { default } from './TableHeader';

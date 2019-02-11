@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { iconChevronRight } from 'carbon-icons';
-import AccordionItem from '../AccordionItem';
+import AccordionItem from '.';
 import Icon from '../Icon';
 import { shallow, mount } from 'enzyme';
 
@@ -47,7 +47,7 @@ describe('AccordionItem', () => {
     });
 
     it('changes the open state upon change in props', () => {
-      const openItem = shallow(
+      const openItem = shallow<AccordionItem>(
         <AccordionItem title="A heading" open>
           Lorem ipsum.
         </AccordionItem>
@@ -60,7 +60,7 @@ describe('AccordionItem', () => {
     });
 
     it('avoids change the open state upon setting props, unless the value actually changes', () => {
-      const openItem = shallow(
+      const openItem = shallow<AccordionItem>(
         <AccordionItem title="A heading" open>
           Lorem ipsum.
         </AccordionItem>
@@ -129,7 +129,7 @@ describe('AccordionItem', () => {
   });
 
   describe('Check that clicking the item toggles its open state', () => {
-    const toggler = mount(
+    const toggler = mount<AccordionItem>(
       <AccordionItem title="A heading">Lorem ipsum.</AccordionItem>
     );
     const heading = toggler.find('button.bx--accordion__heading');

@@ -6,4 +6,4 @@
  */
 
 export * from './CodeSnippet.Skeleton';
-export default './CodeSnippet';
+export { default } from './CodeSnippet';

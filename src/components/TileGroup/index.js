@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export default './TileGroup';
+export { default } from './TileGroup';
