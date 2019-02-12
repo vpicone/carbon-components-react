@@ -38,7 +38,7 @@ describe('AccordionItem', () => {
     it('should use correct icon', () => {
       const heading = wrapper.find('.bx--accordion__heading');
       if (componentsX) {
-        expect(heading.find(ChevronRight16).props().icon.id).toEqual(
+        expect(heading.find<Icon>(ChevronRight16).props().icon.id).toEqual(
           'icon--chevron--right'
         );
       } else {

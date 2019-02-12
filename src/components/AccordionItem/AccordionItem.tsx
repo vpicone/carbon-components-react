@@ -41,48 +41,49 @@ export default class AccordionItem extends Component<
     open: false,
     prevOpen: false,
   };
-  // static propTypes = {
-  //   /**
-  //    * Provide the contents of your AccordionItem
-  //    */
-  //   children: PropTypes.node,
 
-  //   /**
-  //    * Specify an optional className to be applied to the container node
-  //    */
-  //   className: PropTypes.string,
+  static propTypes = {
+    /**
+     * Provide the contents of your AccordionItem
+     */
+    children: PropTypes.node,
 
-  //   /**
-  //    * The accordion title.
-  //    */
-  //   title: PropTypes.node,
+    /**
+     * Specify an optional className to be applied to the container node
+     */
+    className: PropTypes.string,
 
-  //   /**
-  //    * The callback function to render the expando button.
-  //    * Can be a React component class.
-  //    */
-  //   renderExpando: PropTypes.func,
+    /**
+     * The accordion title.
+     */
+    title: PropTypes.node,
 
-  //   /**
-  //    * The description of the expando icon.
-  //    */
-  //   iconDescription: PropTypes.string,
+    /**
+     * The callback function to render the expando button.
+     * Can be a React component class.
+     */
+    renderExpando: PropTypes.func,
 
-  //   /**
-  //    * `true` to open the expando.
-  //    */
-  //   open: PropTypes.bool,
+    /**
+     * The description of the expando icon.
+     */
+    iconDescription: PropTypes.string,
 
-  //   /**
-  //    * The handler of the massaged `click` event.
-  //    */
-  //   onClick: PropTypes.func,
+    /**
+     * `true` to open the expando.
+     */
+    open: PropTypes.bool,
 
-  //   /**
-  //    * The handler of the massaged `click` event on the heading.
-  //    */
-  //   onHeadingClick: PropTypes.func,
-  // };
+    /**
+     * The handler of the massaged `click` event.
+     */
+    onClick: PropTypes.func,
+
+    /**
+     * The handler of the massaged `click` event on the heading.
+     */
+    onHeadingClick: PropTypes.func,
+  };
 
   static defaultProps = {
     title: 'title',

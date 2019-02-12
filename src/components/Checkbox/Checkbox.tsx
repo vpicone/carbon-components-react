@@ -12,7 +12,22 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-const Checkbox = ({
+type Props = {
+  className?: any;
+  id?: any;
+  labelText?: any;
+  onChange?: any;
+  indeterminate?: any;
+  hideLabel?: any;
+  wrapperClassName?: any;
+  title?: string;
+  forwardRef?: any;
+  checked?: boolean;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+};
+
+const InternalCheckbox: React.FC<Props> = ({
   className,
   id,
   labelText,
@@ -62,7 +77,7 @@ const Checkbox = ({
   );
 };
 
-Checkbox.propTypes = {
+InternalCheckbox.propTypes = {
   /**
    * Specify whether the underlying input should be checked
    */
@@ -121,13 +136,16 @@ Checkbox.propTypes = {
   wrapperClassName: PropTypes.string,
 };
 
-Checkbox.defaultProps = {
+InternalCheckbox.defaultProps = {
   onChange: () => {},
   indeterminate: false,
 };
 
-const forwardRef = (props, ref) => <Checkbox {...props} forwardRef={ref} />;
+const forwardRef = (props, ref) => (
+  <InternalCheckbox {...props} forwardRef={ref} />
+);
 
-forwardRef.displayName = 'Checkbox';
+const Checkbox = React.forwardRef<HTMLInputElement, Props>(forwardRef);
+Checkbox.displayName = 'Checkbox';
 
-export default React.forwardRef(forwardRef);
+export default Checkbox;

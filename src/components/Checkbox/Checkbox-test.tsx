@@ -92,7 +92,7 @@ describe('Checkbox', () => {
       );
 
       const input = wrapper.find('input');
-      const inputElement = input.instance();
+      const inputElement: any = input.instance();
 
       inputElement.checked = true;
       wrapper.find('input').simulate('change');
@@ -109,9 +109,11 @@ describe('Checkbox', () => {
 describe('refs', () => {
   it('should accept refs', () => {
     class MyComponent extends React.Component {
+      myRef = null;
+
       constructor(props) {
         super(props);
-        this.myRef = React.createRef();
+        this.myRef = React.createRef<HTMLInputElement>();
         this.focus = this.focus.bind(this);
       }
       focus() {
@@ -128,10 +130,12 @@ describe('refs', () => {
         );
       }
     }
-    const wrapper = mount(<MyComponent />);
-    expect(document.activeElement.type).toBeUndefined();
-    wrapper.instance().focus();
-    expect(document.activeElement.type).toEqual('checkbox');
+    const wrapper = mount<MyComponent>(<MyComponent />);
+    {
+      expect(document.activeElement.getAttribute('type')).toBeNull();
+      wrapper.instance().focus();
+      expect(document.activeElement.getAttribute('type')).toEqual('checkbox');
+    }
   });
 });
 

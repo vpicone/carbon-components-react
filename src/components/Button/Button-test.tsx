@@ -116,7 +116,15 @@ describe('Button', () => {
       const error = new Error(
         'icon property specified without also providing an iconDescription property.'
       );
-      expect(Button.propTypes.iconDescription(props)).toEqual(error);
+      expect(
+        Button.propTypes.iconDescription(
+          props,
+          'iconDescription',
+          'Button',
+          'test',
+          'Icon description'
+        )
+      ).toEqual(error);
     });
   });
 });

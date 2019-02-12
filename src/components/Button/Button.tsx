@@ -15,7 +15,22 @@ import { componentsX } from '../../internal/FeatureFlags';
 
 const { prefix } = settings;
 
-const Button = ({
+export type Props = {
+  children?: any;
+  className?: any;
+  disabled?: any;
+  small?: any;
+  kind?: any;
+  href?: any;
+  tabIndex?: any;
+  type?: any;
+  icon?: any;
+  iconDescription?: any;
+  role?: string;
+  inputref?: any;
+};
+
+const Button: React.FC<Props> = ({
   children,
   className,
   disabled,
@@ -153,7 +168,7 @@ Button.propTypes = {
    * If specifying the `icon` prop, provide a description for that icon that can
    * be read by screen readers
    */
-  iconDescription: props => {
+  iconDescription: (props: Props) => {
     if (props.icon && !props.iconDescription) {
       return new Error(
         'icon property specified without also providing an iconDescription property.'
@@ -164,7 +179,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  iconDescription: 'Provide icon description if icon is used',
   tabIndex: 0,
   type: 'button',
   disabled: false,
