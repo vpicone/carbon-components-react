@@ -199,7 +199,8 @@ Select.defaultProps = {
   light: false,
 };
 
-export type Ref = HTMLSelectElement;
-export default React.forwardRef<Ref, Props>((props, ref) => (
-  <Select {...props} forwardRef={ref} />
-));
+const forwardRef = (props, ref) => <Select {...props} forwardRef={ref} />;
+
+forwardRef.displayName = 'Select';
+
+export default React.forwardRef<HTMLSelectElement, Props>(forwardRef);
