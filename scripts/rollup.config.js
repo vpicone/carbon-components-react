@@ -9,7 +9,6 @@ const typescript = require('typescript');
 
 const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
 const replace = require('rollup-plugin-replace');
 const uglify = require('rollup-plugin-uglify');
 const sizes = require('rollup-plugin-sizes');

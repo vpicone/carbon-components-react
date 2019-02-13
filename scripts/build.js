@@ -30,9 +30,9 @@ const exec = (command, extraEnv) => {
     });
   } catch (err) {
     if (extraEnv.module) {
-      console.error(`Errors found when compiling to ${extraEnv.module}`);
+      console.log(`Errors found when compiling to ${extraEnv.module}`);
     } else {
-      console.error(err);
+      console.log(err);
     }
   }
 };
