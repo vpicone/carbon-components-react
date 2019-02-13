@@ -4,7 +4,9 @@ const chalk = require('chalk');
 const Table = require('cli-table');
 const gzip = require('gzip-size');
 
-const typescript = require('rollup-plugin-typescript');
+const typescriptPlugin = require('rollup-plugin-typescript');
+const typescript = require('typescript');
+
 const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
@@ -60,14 +62,18 @@ process.env.BABEL_ENV = 'es';
 module.exports = {
   input: 'src/index.ts',
   plugins: [
-    typescript(),
     resolve({
       jsnext: true,
       main: true,
     }),
+    typescriptPlugin({
+      typescript,
+      importHelpers: true,
+    }),
     commonjs({
       include: 'node_modules/**',
       sourceMap: true,
+      extensions: ['.js'],
       namedExports: {
         'node_modules/react/index.js': [
           'Children',
@@ -79,9 +85,6 @@ module.exports = {
         ],
         'node_modules/react-dom/index.js': ['render'],
       },
-    }),
-    babel({
-      exclude: ['node_modules/**'], // only transpile our source code
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),

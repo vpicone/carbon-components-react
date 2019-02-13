@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/", // path to output directory
     "sourceMap": false, // allow sourcemap support
     // "strictNullChecks": true, // enable strict null checks as a best practice
     "moduleResolution": "node",
@@ -9,7 +8,7 @@
     "esModuleInterop": true,
     "lib": ["es2015", "dom"]
   },
-  "include": ["src/**/*"],
+  "include": ["../src/**/*"],
   "exclude": [
     "../src/**__tests__/*",
     "../src/**/*-test.t*",

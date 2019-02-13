@@ -66,7 +66,9 @@ describe('childrenOf', () => {
   });
 
   it('should work with `isRequired`', () => {
-    const RequiredChildrenOfTest = ({ children }) => <div>{children}</div>;
+    const RequiredChildrenOfTest: React.FC = ({ children }) => (
+      <div>{children}</div>
+    );
     RequiredChildrenOfTest.propTypes = {
       children: childrenOf([StatelessComponent, ClassComponent]).isRequired,
     };
