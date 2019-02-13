@@ -7,3 +7,4 @@
 
 export * from './StructuredList.Skeleton';
 export * from './StructuredList';
+export { default } from './StructuredList';

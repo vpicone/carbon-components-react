@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const Table = require('cli-table');
 const gzip = require('gzip-size');
 
+const typescript = require('rollup-plugin-typescript');
 const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
@@ -57,8 +58,9 @@ const prodSettings =
 process.env.BABEL_ENV = 'es';
 
 module.exports = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   plugins: [
+    typescript(),
     resolve({
       jsnext: true,
       main: true,

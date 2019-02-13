@@ -21,7 +21,7 @@ import { keys, matches } from '../../tools/key';
 
 const { prefix } = settings;
 
-export class Tile extends Component {
+export default class Tile extends Component {
   static propTypes = {
     /**
      * The child nodes.

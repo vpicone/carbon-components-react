@@ -166,7 +166,7 @@ ProgressStep.defaultProps = {
   renderLabel: defaultRenderLabel,
 };
 
-export class ProgressIndicator extends Component {
+export default class ProgressIndicator extends Component {
   state = {};
 
   static propTypes = {

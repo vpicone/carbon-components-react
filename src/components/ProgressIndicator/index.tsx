@@ -7,3 +7,4 @@
 
 export * from './ProgressIndicator.Skeleton';
 export * from './ProgressIndicator';
+export { default } from './ProgressIndicator';
