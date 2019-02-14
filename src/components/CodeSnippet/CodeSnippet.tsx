@@ -18,7 +18,30 @@ import { componentsX } from '../../internal/FeatureFlags';
 
 const { prefix } = settings;
 
-export default class CodeSnippet extends Component {
+type CodeSnippetProps = {
+  type?: 'single' | 'inline' | 'multi';
+  className?: string;
+  feedback?: string;
+  copyLabel?: string;
+  copyButtonDescription?: string;
+  onClick?: (...args: any[]) => any;
+  ariaLabel?: string;
+  showMoreText?: string;
+  showLessText?: string;
+  light?: boolean;
+};
+
+type CodeSnippetState = {
+  shouldShowMoreLessBtn: boolean;
+  expandedCode: boolean;
+};
+
+export default class CodeSnippet extends Component<
+  CodeSnippetProps,
+  CodeSnippetState
+> {
+  private codeContent = React.createRef<HTMLPreElement>();
+
   static propTypes = {
     /**
      * Provide the type of Code Snippet
@@ -94,7 +117,7 @@ export default class CodeSnippet extends Component {
 
   componentDidMount() {
     if (this.codeContent) {
-      if (this.codeContent.getBoundingClientRect().height > 255) {
+      if (this.codeContent.current.getBoundingClientRect().height > 255) {
         this.setState({ shouldShowMoreLessBtn: true });
       }
     }
@@ -102,7 +125,7 @@ export default class CodeSnippet extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.children !== prevProps.children && this.codeContent) {
-      if (this.codeContent.getBoundingClientRect().height > 255) {
+      if (this.codeContent.current.getBoundingClientRect().height > 255) {
         this.setState({ shouldShowMoreLessBtn: true });
       }
     }
@@ -175,12 +198,7 @@ export default class CodeSnippet extends Component {
         className={`${prefix}--snippet-container`}
         aria-label={ariaLabel ? ariaLabel : 'code-snippet'}>
         <code>
-          <pre
-            ref={codeContent => {
-              this.codeContent = codeContent;
-            }}>
-            {children}
-          </pre>
+          <pre ref={this.codeContent}>{children}</pre>
         </code>
       </div>
     );
