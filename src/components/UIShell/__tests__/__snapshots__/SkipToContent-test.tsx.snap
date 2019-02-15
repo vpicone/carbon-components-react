@@ -4,12 +4,12 @@ exports[`SkipToContent should render 1`] = `
 <SkipToContent
   className="custom-classname"
   href="#main-content"
-  tabIndex="0"
+  tabIndex={0}
 >
   <a
     className="bx--skip-to-content custom-classname"
     href="#main-content"
-    tabIndex="0"
+    tabIndex={0}
   >
     Skip to main content
   </a>

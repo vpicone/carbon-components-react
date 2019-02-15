@@ -5,7 +5,7 @@ exports[`ListBoxField should render 1`] = `
   <div
     className="bx--list-box__field"
     role="button"
-    tabIndex="0"
+    tabIndex={0}
   >
     <ListBoxSelection
       clearSelection={[MockFunction]}
@@ -16,7 +16,7 @@ exports[`ListBoxField should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         role="button"
-        tabIndex="0"
+        tabIndex={0}
         title="Clear selected item"
       >
         <Icon

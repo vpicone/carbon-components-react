@@ -178,7 +178,7 @@ export class FileUploaderButton extends Component {
           id={this.uid}
           disabled={disabled}
           type="file"
-          tabIndex="-1"
+          tabIndex={-1}
           multiple={multiple}
           accept={accept}
           name={name}

@@ -6,28 +6,32 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import classNames from 'classnames';
 import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-type Props = {
-  className?: any;
-  id?: any;
-  labelText?: any;
-  onChange?: any;
-  indeterminate?: any;
-  hideLabel?: any;
-  wrapperClassName?: any;
+type CheckboxProps = {
+  className?: string;
+  id: string;
+  labelText: React.ReactNode;
+  onChange?: (
+    checked: boolean,
+    id: string,
+    evt: ChangeEvent<HTMLInputElement>
+  ) => void;
+  indeterminate?: boolean;
+  hideLabel?: boolean;
+  wrapperClassName?: string;
   title?: string;
-  forwardRef?: any;
+  forwardRef?: React.Ref<HTMLInputElement>;
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
 };
 
-const InternalCheckbox: React.FC<Props> = ({
+const InternalCheckbox: React.FC<CheckboxProps> = ({
   className,
   id,
   labelText,
@@ -145,7 +149,6 @@ const forwardRef = (props, ref) => (
   <InternalCheckbox {...props} forwardRef={ref} />
 );
 
-const Checkbox = React.forwardRef<HTMLInputElement, Props>(forwardRef);
-Checkbox.displayName = 'Checkbox';
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(forwardRef);
 
 export default Checkbox;

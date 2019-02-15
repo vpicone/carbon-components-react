@@ -51,7 +51,7 @@ const ListBoxSelection = ({
     <div
       role="button"
       className={className}
-      tabIndex="0"
+      tabIndex={0}
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
       title={description}>

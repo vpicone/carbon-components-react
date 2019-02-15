@@ -51,7 +51,7 @@ const TooltipSimple = ({
           <div
             className={tooltipClasses}
             data-tooltip-text={text}
-            tabIndex="0"
+            tabIndex={0}
             role="button"
             {...other}>
             <Icon
@@ -66,7 +66,7 @@ const TooltipSimple = ({
         <div
           className={tooltipClasses}
           data-tooltip-text={text}
-          tabIndex="0"
+          tabIndex={0}
           role="button"
           {...other}>
           {children}

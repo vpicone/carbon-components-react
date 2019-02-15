@@ -254,7 +254,7 @@ export default class MultiSelect extends React.Component {
                             checked={isChecked}
                             disabled={disabled}
                             readOnly={true}
-                            tabIndex="-1"
+                            tabIndex={-1}
                             labelText={itemText}
                           />
                         </ListBox.MenuItem>

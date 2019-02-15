@@ -22,7 +22,7 @@ const ListBoxField = ({ children, ...rest }) => (
   <div
     role="button"
     className={`${prefix}--list-box__field`}
-    tabIndex="0"
+    tabIndex={0}
     {...rest}>
     {children}
   </div>

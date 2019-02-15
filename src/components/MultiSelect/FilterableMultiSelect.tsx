@@ -284,7 +284,7 @@ export default class FilterableMultiSelect extends React.Component {
                             name={itemText}
                             checked={isChecked}
                             readOnly={true}
-                            tabIndex="-1"
+                            tabIndex={-1}
                             labelText={itemText}
                           />
                         </ListBox.MenuItem>

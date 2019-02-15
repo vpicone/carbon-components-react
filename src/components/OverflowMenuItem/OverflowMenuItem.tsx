@@ -161,7 +161,7 @@ export default class OverflowMenuItem extends React.Component {
           }}
           ref={this.overflowMenuItem}
           title={requireTitle ? itemText : null}
-          tabIndex="-1"
+          tabIndex={-1}
           index={index}>
           {itemText}
         </TagToUse>

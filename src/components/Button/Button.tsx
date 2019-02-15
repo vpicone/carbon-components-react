@@ -4,9 +4,8 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { LegacyRef } from 'react';
 import Icon from '../Icon';
 import classNames from 'classnames';
 import { settings } from 'carbon-components';
@@ -15,22 +14,32 @@ import { componentsX } from '../../internal/FeatureFlags';
 
 const { prefix } = settings;
 
-export type Props = {
-  children?: any;
-  className?: any;
-  disabled?: any;
-  small?: any;
-  kind?: any;
-  href?: any;
-  tabIndex?: any;
-  type?: any;
-  icon?: any;
-  iconDescription?: any;
+type ButtonType = 'button' | 'reset' | 'submit';
+
+type ButtonProps = {
+  className?: string;
+  disabled?: boolean;
+  small?: boolean;
+  kind: any;
+  href?: string;
+  tabIndex?: number;
+  type?: ButtonType;
   role?: string;
-  inputref?: any;
+  inputref?: LegacyRef<HTMLButtonElement & HTMLAnchorElement>;
+  children?: React.ReactNode;
+  icon?:
+    | {
+        width?: string;
+        height?: string;
+        viewBox: string;
+        svgData: object;
+      }
+    | string
+    | React.ReactNode;
+  iconDescription?: any;
 };
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   className,
   disabled,
@@ -41,6 +50,7 @@ const Button: React.FC<Props> = ({
   type,
   icon,
   iconDescription,
+  inputref,
   ...other
 }) => {
   const buttonClasses = classNames(className, {
@@ -53,7 +63,6 @@ const Button: React.FC<Props> = ({
     [`${prefix}--btn--danger--primary`]: kind === 'danger--primary',
     [`${prefix}--btn--tertiary`]: kind === 'tertiary',
   });
-
   const commonProps = {
     tabIndex,
     className: buttonClasses,
@@ -75,31 +84,24 @@ const Button: React.FC<Props> = ({
     }
     return null;
   })();
-
   const button = (
     <button
       {...other}
       {...commonProps}
       disabled={disabled}
       type={type}
-      ref={other.inputref}>
+      ref={inputref}>
       {children}
       {buttonImage}
     </button>
   );
 
   const anchor = (
-    <a
-      {...other}
-      {...commonProps}
-      href={href}
-      role="button"
-      ref={other.inputref}>
+    <a {...other} {...commonProps} href={href} role="button" ref={inputref}>
       {children}
       {buttonImage}
     </a>
   );
-
   return href ? anchor : button;
 };
 
@@ -142,7 +144,7 @@ Button.propTypes = {
   /**
    * Optional prop to specify the type of the Button
    */
-  type: PropTypes.oneOf(['button', 'reset', 'submit']),
+  type: PropTypes.oneOf<ButtonType>(['button', 'reset', 'submit']),
 
   /**
    * Optional prop to specify the role of the Button
@@ -168,7 +170,7 @@ Button.propTypes = {
    * If specifying the `icon` prop, provide a description for that icon that can
    * be read by screen readers
    */
-  iconDescription: (props: Props) => {
+  iconDescription: (props: ButtonProps) => {
     if (props.icon && !props.iconDescription) {
       return new Error(
         'icon property specified without also providing an iconDescription property.'

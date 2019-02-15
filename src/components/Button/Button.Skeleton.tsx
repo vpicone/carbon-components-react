@@ -12,12 +12,12 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-type Props = {
+type ButtonSkeletonProps = {
   small?: boolean;
   href?: string;
 };
 
-const ButtonSkeleton: React.FC<Props> = ({ small, href }) => {
+const ButtonSkeleton: React.FC<ButtonSkeletonProps> = ({ small, href }) => {
   const buttonClasses = classNames({
     [`${prefix}--skeleton`]: true,
     [`${prefix}--btn`]: true,
