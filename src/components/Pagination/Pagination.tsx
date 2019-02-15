@@ -158,7 +158,7 @@ export default class Pagination extends Component {
 
   constructor(props) {
     super(props);
-    if (__DEV__) {
+    if (global.__DEV__) {
       warning(
         didWarnAboutDeprecation,
         'The `Pagination` component is being updated in the next release of ' +

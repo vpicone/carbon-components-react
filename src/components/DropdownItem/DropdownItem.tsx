@@ -26,7 +26,7 @@ const DropdownItem = ({
   selected,
   ...other
 }) => {
-  if (__DEV__) {
+  if (global.__DEV__) {
     warning(
       didWarnAboutDeprecation,
       'The `DropdownItem` component has been deprecated and will be ' +

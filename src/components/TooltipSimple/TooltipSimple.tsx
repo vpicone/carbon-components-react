@@ -28,7 +28,7 @@ const TooltipSimple = ({
   iconDescription,
   ...other
 }) => {
-  if (__DEV__) {
+  if (global.__DEV__) {
     warning(
       didWarnAboutDeprecation,
       'The `TooltipSimple` component has been deprecated and will be removed ' +

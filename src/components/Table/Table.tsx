@@ -16,7 +16,7 @@ const { prefix } = settings;
 let didWarnAboutDeprecation = false;
 
 const Table = props => {
-  if (__DEV__) {
+  if (global.__DEV__) {
     warning(
       didWarnAboutDeprecation,
       'The `Table` component is being updated in the next release of ' +

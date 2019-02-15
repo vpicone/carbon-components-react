@@ -109,7 +109,7 @@ export default class Dropdown extends PureComponent {
   constructor(props) {
     super(props);
     this.state = this.resetState(props);
-    if (__DEV__) {
+    if (global.__DEV__) {
       warning(
         didWarnAboutDeprecation,
         'The `Dropdown` component is being updated in the next release of ' +

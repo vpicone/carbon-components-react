@@ -99,7 +99,7 @@ const triggerButtonPositionFactors = {
 export const getMenuOffset = (menuBody, direction, trigger, flip) => {
   const triggerButtonPositionProp = triggerButtonPositionProps[direction];
   const triggerButtonPositionFactor = triggerButtonPositionFactors[direction];
-  if (__DEV__) {
+  if (global.__DEV__) {
     invariant(
       triggerButtonPositionProp && triggerButtonPositionFactor,
       '[OverflowMenu] wrong floating menu direction: `%s`',
@@ -560,7 +560,7 @@ export default class OverflowMenu extends Component {
       ...other
     } = this.props;
 
-    if (__DEV__) {
+    if (global.__DEV__) {
       warning(
         floatingMenu || direction === DIRECTION_BOTTOM,
         '[OverflowMenu] menu direction other than `bottom` is only supporting with `floatingMenu` option. Received: `%s`',

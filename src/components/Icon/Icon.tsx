@@ -101,7 +101,7 @@ export function svgShapes(svgData) {
 }
 
 export function isPrefixed(name) {
-  if (global.__DEV__) {
+  if (global.global.__DEV__) {
     invariant(
       typeof name === 'string',
       '[Icon] icon name is missing. You likely forgot to specify the icon, ' +
