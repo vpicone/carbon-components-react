@@ -12,13 +12,13 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-type Props = {
+type BreadcrumbProps = {
   children: React.ReactNode;
   className?: string;
   noTrailingSlash?: boolean;
 };
 
-const Breadcrumb: React.FC<Props> = ({
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
   children,
   className,
   noTrailingSlash,

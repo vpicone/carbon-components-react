@@ -14,7 +14,13 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-export default function AccordionSkeleton(props) {
+type AccordionSkeletonProps = {
+  open?: boolean;
+  count?: number;
+  uid?: string;
+};
+
+const AccordionSkeleton: React.FC<AccordionSkeletonProps> = props => {
   const Item = () => (
     <li className={`${prefix}--accordion__item`}>
       <button type="button" className={`${prefix}--accordion__heading`}>
@@ -56,7 +62,7 @@ export default function AccordionSkeleton(props) {
       ))}
     </ul>
   );
-}
+};
 
 AccordionSkeleton.propTypes = {
   /**

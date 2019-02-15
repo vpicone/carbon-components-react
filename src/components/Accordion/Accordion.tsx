@@ -12,12 +12,12 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-type Props = {
+type AccordionProps = {
   className?: string;
   children: React.ReactNode;
 };
 
-const Accordion: React.FunctionComponent<Props> = ({
+const Accordion: React.FunctionComponent<AccordionProps> = ({
   children,
   className,
   ...other

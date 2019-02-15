@@ -10,10 +10,12 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
-type Props = {
+type CheckboxSkeletonProps = {
   id?: string;
 };
-export default class CheckboxSkeleton extends React.Component<Props> {
+export default class CheckboxSkeleton extends React.Component<
+  CheckboxSkeletonProps
+> {
   render() {
     const { id } = this.props;
     return (

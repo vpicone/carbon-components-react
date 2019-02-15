@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { Component, MouseEventHandler } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import { iconChevronRight } from 'carbon-icons';
 import { settings } from 'carbon-components';
@@ -21,7 +21,7 @@ const defaultRenderExpando = ({ children, ...rest }) => (
   <button {...rest}>{children}</button>
 );
 
-interface Props {
+type AccordionItemProps = {
   title?: React.ReactNode;
   className?: string;
   renderExpando?: (props: any) => JSX.Element;
@@ -31,16 +31,18 @@ interface Props {
   onHeadingClick?: (
     { isOpen, evt }: { isOpen: boolean; evt: React.MouseEvent }
   ) => void;
-}
+};
+
+type AccordionItemState = {
+  open: boolean;
+  prevOpen: boolean;
+};
 
 export default class AccordionItem extends Component<
-  Props,
-  { open: boolean; prevOpen: boolean }
+  AccordionItemProps,
+  AccordionItemState
 > {
-  state = {
-    open: false,
-    prevOpen: false,
-  };
+  state = { open: false, prevOpen: false };
 
   static propTypes = {
     /**
@@ -96,12 +98,7 @@ export default class AccordionItem extends Component<
 
   static getDerivedStateFromProps({ open }, state) {
     const { prevOpen } = state;
-    return prevOpen === open
-      ? null
-      : {
-          open,
-          prevOpen: open,
-        };
+    return prevOpen === open ? null : { open, prevOpen: open };
   }
 
   handleClick = evt => {
@@ -111,7 +108,10 @@ export default class AccordionItem extends Component<
   handleHeadingClick = evt => {
     const open = !this.state.open;
     this.setState({ open });
-    this.props.onHeadingClick({ isOpen: open, evt });
+    this.props.onHeadingClick({
+      isOpen: open,
+      evt,
+    });
   };
 
   handleKeyDown = evt => {
@@ -131,15 +131,13 @@ export default class AccordionItem extends Component<
       renderExpando: Expando,
       iconDescription,
       children,
-      onClick, // eslint-disable-line no-unused-vars
-      onHeadingClick, // eslint-disable-line no-unused-vars
+      onClick,
+      onHeadingClick,
       ...other
-    } = this.props;
+    } = this.props; // eslint-disable-line no-unused-vars // eslint-disable-line no-unused-vars
 
     const classNames = classnames(
-      {
-        [`${prefix}--accordion__item--active`]: this.state.open,
-      },
+      { [`${prefix}--accordion__item--active`]: this.state.open },
       `${prefix}--accordion__item`,
       className
     );
@@ -165,9 +163,10 @@ export default class AccordionItem extends Component<
               className={`${prefix}--accordion__arrow`}
               icon={iconChevronRight}
               description={iconDescription}
-              role={null} // eslint-disable-line jsx-a11y/aria-role
+              role={null}
             />
-          )}
+          ) // eslint-disable-line jsx-a11y/aria-role
+          }
 
           <div className={`${prefix}--accordion__title`}>{title}</div>
         </Expando>

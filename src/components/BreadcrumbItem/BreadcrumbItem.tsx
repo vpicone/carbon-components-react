@@ -23,13 +23,13 @@ const newChild = (children, href, prefix) => {
   }
 };
 
-type Props = {
+type BreadcrumbItemProps = {
   children: React.ReactNode;
   className?: string;
   href?: string;
 };
 
-const BreadcrumbItem: React.FC<Props> = ({
+const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   children,
   className,
   href,
