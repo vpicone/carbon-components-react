@@ -28,6 +28,7 @@ const LinkPropTypes = {
     PropTypes.string,
     PropTypes.node,
     PropTypes.func,
+    PropTypes.elementType,
   ]),
 };
 
