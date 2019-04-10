@@ -53,12 +53,13 @@ const TableHeader = ({
   onClick,
   scope,
   sortDirection,
+  colSpan,
   translateWithId: t,
   ...rest
 }) => {
   if (!isSortable) {
     return (
-      <th {...rest} className={headerClassName} scope={scope}>
+      <th {...rest} colSpan={colSpan} className={headerClassName} scope={scope}>
         {children}
       </th>
     );
@@ -74,7 +75,11 @@ const TableHeader = ({
   const ariaSort = !isSortHeader ? 'none' : sortDirections[sortDirection];
 
   return (
-    <th scope={scope} className={headerClassName} aria-sort={ariaSort}>
+    <th
+      colSpan={colSpan}
+      scope={scope}
+      className={headerClassName}
+      aria-sort={ariaSort}>
       <button className={className} onClick={onClick} {...rest}>
         <span className={`${prefix}--table-header-label`}>{children}</span>
         <Arrow
@@ -146,6 +151,12 @@ TableHeader.propTypes = {
    * this component.
    */
   translateWithId: PropTypes.func,
+
+  /**
+   * Allows for header cells to span multiple columns. This is generally not necessary or recommended.
+   * You should instead style cells in this column to fit the desired width.
+   */
+  colSpan: PropTypes.number,
 };
 
 TableHeader.defaultProps = {
